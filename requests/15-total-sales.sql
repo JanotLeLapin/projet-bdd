@@ -1,6 +1,6 @@
 SELECT
     a.nom AS app_name,
-    p.libelle AS plateform,
+    p.libelle AS platform,
     SUM(a.prix) AS total_revenue,
     COUNT(buy.id_utilisateur) AS sale_count
 FROM
