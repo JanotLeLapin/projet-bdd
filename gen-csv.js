@@ -70,6 +70,10 @@ function processRow(raw) {
 
     i++
   }
+
+  if (current.length > 0) {
+    res.push(current)
+  }
   return res
 }
 
