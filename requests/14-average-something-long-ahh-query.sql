@@ -7,7 +7,7 @@ FROM (
         SUM(a.prix) AS total_sales,
         SUM(CASE 
                 WHEN buy.rembourse = 1 THEN a.prix
-                ELSE 0 
+                ELSE 0
             END) AS total_refunds
     FROM
         Acheter buy
