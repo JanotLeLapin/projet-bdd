@@ -3,10 +3,10 @@ WITH distrib_periods AS (
         id_application,
         num,
         changelog,
-        date_pub AS start_date,
-        LEAD(date_pub, 1, SYSDATE) OVER (
+        date_publi AS start_date,
+        LEAD(date_publi, 1, SYSDATE) OVER (
             PARTITION BY id_application 
-            ORDER BY date_pub ASC
+            ORDER BY date_publi ASC
         ) AS end_date
     FROM
         Distribution
@@ -16,7 +16,7 @@ SELECT
     d.num AS target_version,
     e.titre,
     e.contenu,
-    e.date_pub AS comment_date
+    e.date_publi AS comment_date
 FROM
     Evaluer e
 JOIN
@@ -26,7 +26,7 @@ JOIN
 WHERE
     e.titre IS NOT NULL 
     AND e.contenu IS NOT NULL
-    AND e.date_pub >= d.start_date
-    AND e.date_pub < d.end_date
+    AND e.date_publi >= d.start_date
+    AND e.date_publi < d.end_date
 ORDER BY
-    a.nom, e.date_pub DESC;
+    a.nom, e.date_publi DESC;

@@ -6,7 +6,7 @@ FROM (
         buy.id_utilisateur,
         SUM(a.prix) AS total_sales,
         SUM(CASE 
-                WHEN a.rembourse = 1 THEN a.prix 
+                WHEN buy.rembourse = 1 THEN a.prix
                 ELSE 0 
             END) AS total_refunds
     FROM
